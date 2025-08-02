@@ -1,7 +1,8 @@
 // app/api/analyze/route.ts
+
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@supabase/ssr';
-import prisma from '@/lib/prisma'; // We will create this file next
+import prisma from '@/lib/prisma';
 import pdf from 'pdf-parse';
 import mammoth from 'mammoth';
 import axios from 'axios';
@@ -90,8 +91,11 @@ export async function POST(request: NextRequest) {
         });
 
         return NextResponse.json({ analysis: analysisReport });
-    } catch (error: any) {
+    } catch (error) {
         console.error('Full error object:', error);
-        return NextResponse.json({ error: error.message || 'An internal error occurred.' }, { status: 500 });
+        if (error instanceof Error) {
+            return NextResponse.json({ error: error.message }, { status: 500 });
+        } // <-- The closing brace for the 'if' was added here.
+        return NextResponse.json({ error: 'An internal error occurred.' }, { status: 500 });
     }
 }

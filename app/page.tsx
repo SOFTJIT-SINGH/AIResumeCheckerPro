@@ -13,7 +13,9 @@ export default function Home() {
         <div className="min-h-screen bg-gray-900 text-white">
             <main className="container mx-auto p-4 md:p-8">
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-extrabold">AI Resume Analyzer</h1>
+                    {/* <h1 className="text-4xl md:text-5xl font-extrabold">AI Resume Analyzer</h1> */}
+                    <h1 className="text-4xl md:text-5xl font-extrabold">AI Resume Checker Pro</h1>
+                    {/* <h1 className="text-4xl md:text-5xl font-extrabold">ResumeSoft AI</h1> */}
                     <p className="text-lg text-gray-400 mt-2">Get instant feedback to land your dream job.</p>
                 </div>
 
